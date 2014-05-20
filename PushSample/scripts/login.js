@@ -1,52 +1,53 @@
 (function (global) {
-    var LoginViewModel,
-        app = global.app = global.app || {};
+    'use strict';
+    
+    var app = global.app = global.app || {};
+    
+    app.loginViewModel = (function () {
+        
+        var $username,
+            $password;
+        
+        var init = function () {
 
-    LoginViewModel = kendo.data.ObservableObject.extend({
-        isLoggedIn: false,
-        username: "",
-        password: "",
+            $username = $('#loginUsername');
+            $password = $('#loginPassword');
+        };
+        
+        var show = function () {
+            $username.val('');
+            $password.val('');
+        };
+        
+        var login = function () {
 
-        onLogin: function () {
-            var that = this,
-                username = that.get("username").trim(),
-                password = that.get("password").trim();
+            var username = $username.val(),
+                password = $password.val();
+            
+            app.showLoading();
 
-            if (username === "" || password === "") {
-                navigator.notification.alert("Both fields are required!",
-                    function () { }, "Login failed", 'OK');
-
-                return;
-            }
-
-            that.set("isLoggedIn", true);
-        },
-
-        onLogout: function () {
-            var that = this;
-
-            that.clearForm();
-            that.set("isLoggedIn", false);
-        },
-
-        clearForm: function () {
-            var that = this;
-
-            that.set("username", "");
-            that.set("password", "");
-        },
-
-        checkEnter: function (e) {
-            var that = this;
-
-            if (e.keyCode == 13) {
-                $(e.target).blur();
-                that.onLogin();
-            }
-        }
-    });
-
-    app.loginService = {
-        viewModel: new LoginViewModel()
-    };
-})(window);
+            app.everlive.Users.login(username, password).then(function () {
+                
+                app.hideLoading();
+                return app.usersModel.load();
+                
+            }).then(function () {
+                
+                app.navigateToView(app.config.views.device);
+                
+            }).then(null, function (err) {
+                	app.hideLoading();
+            		app.showError(err.message);
+            	}
+            );
+        };
+        
+        return {
+            init: init,
+            show: show,
+            login: login,
+            getYear: app.getYear
+        };
+    }());
+    
+}(window));
