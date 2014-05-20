@@ -1,0 +1,35 @@
+<div id="signup"
+     class="signup-view"
+	 data-role="view"
+     data-layout="default"
+     data-model="app.singupViewModel"
+	 data-init="app.singupViewModel.init"
+     data-show="app.singupViewModel.show"
+     data-hide="app.singupViewModel.hide">
+
+    <div data-role="header">
+        <div data-role="navbar">
+            Sign up
+            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton" href="#initView">Back</a>
+        </div>
+    </div>
+    <form id="signUp">
+        <ul id="signup-form" data-role="listview" data-style="inset">
+            <li>
+                <input type="text" id="signupName" data-bind="value: DisplayName" placeholder="Name" required/>
+            </li>
+            <li>
+                <input type="email" id="signupEmail" data-bind="value: Email" placeholder="Email"/>
+            </li>
+            <li>
+                <input type="text" id="signupUsername" data-bind="value: Username" placeholder="Username" required/>
+            </li>
+            <li>
+                <input type="password" id="signupPassword" data-bind="value: Password" placeholder="Password" required/>
+            </li>
+        </ul>
+    </form>
+    <div id="signupBtnWrp" class="signup-btn-wrp disabled">
+        <a class="btn btn-signup" data-role="button" data-bind="click: signup">Register</a>
+    </div>
+</div>

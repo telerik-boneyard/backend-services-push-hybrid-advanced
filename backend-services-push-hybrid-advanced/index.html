@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link href="lib/kendo/styles/kendo.mobile.all.min.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
+
+    <script src="cordova.js"></script>
+    <script src="lib/kendo/js/jquery.min.js"></script>
+    <script src="lib/kendo/js/kendo.mobile.min.js"></script>
+    <script src="lib/everlive/everlive.all.min.js"></script>
+
+    <script src="scripts/config.js"></script>
+    <script src="scripts/common.js"></script>
+    <script src="scripts/users.js"></script>
+    <script src="scripts/login.js"></script>
+    <script src="scripts/signup.js"></script>
+    <script src="scripts/device.js"></script>
+
+    <script src="scripts/app.js"></script>
+</head>
+<body id="pushApp">
+    <div data-role="layout" data-id="default">
+        <!--View content will render here-->
+    </div>
+    
+    <div id="initView"
+         class="init-view form-view"
+         data-role="view"
+         data-model="app.loginViewModel"
+		 data-init="app.loginViewModel.init"
+		 data-show="app.loginViewModel.show">
+        
+        <div data-role="header"></div>
+        
+        <h1 class="app-logo hide-text center-block">Telerik <small>DevCloud</small></h1>
+        <h2 class="app-name center-text">Friends <small>Sample Application</small></h2>
+        <form id="login-form">
+            <ul data-role="listview" data-style="inset">
+                <li class="username">
+                    <input type="text" id="loginUsername" placeholder="Username" required validationMessage="Username is required!">
+                </li>
+                <li class="password">
+                    <input type="password" id="loginPassword" placeholder="Password" required validationMessage="Password is required!">
+                </li>
+            </ul>
+        </form>
+        <ol class="group-wrp">
+            <li>
+                <span id="login" data-role="touch" data-bind="events: { tap: login }">
+                    <a data-role="button" class="btn btn-login">Login</a>
+                </span>
+            </li>
+            <li class="signup">
+                <a data-role="button" href="views/signupView.html" class="btn-signup">Don't have an account?</a>
+            </li>
+        </ol>
+        
+        <div data-role="footer"><p>&copy; <span data-bind="text: getYear"></span> Telerik Inc.</p></div>
+    </div>
+</body>
+</html>
