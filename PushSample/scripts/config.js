@@ -6,7 +6,7 @@
     app.config = {
         
         everlive: {
-            apiKey: 'yK9fbHYmjxAQ7Vdz', // Put your Backend Services API key here
+            apiKey: '$EVERLIVE_API_KEY$', // Put your Backend Services API key here
             scheme: 'http'
         },
         
