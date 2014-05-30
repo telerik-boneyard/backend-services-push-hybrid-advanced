@@ -32,33 +32,33 @@
         notificationCallbackAndroid: onAndroidPushReceived,
         notificationCallbackIOS: onIosPushReceived,
     };
-    // pass the cb functions here
+    // TODO pass the cb functions here
     app.enablePushNotifications = function (success, error) {
+        var devicePlatform = device.platform; // get the device platform from Cordova
+        kendoConsole.log("Initializing push notifications for " + devicePlatform + '...');
+        
         var everlive = app.everlive;
-
-        var customDeviceParameters = {
+        var currentDevice = everlive.push.currentDevice(app.constants.EMULATOR_MODE);
+		var customDeviceParameters = {
             "LastLoginDate": new Date()
         };
-
-        var currentDevice = everlive.push.currentDevice(app.constants.EMULATOR_MODE);
-
-        kendoConsole.log("Initializing push notifications for " + device.platform + '...');
+       
         currentDevice.enableNotifications(pushSettings)
             .then(
                 function (initResult) {
-                    kendoConsole.log("Push token received!");
                     // kendoConsole.log(initResult.token);
+                    kendoConsole.log("The device is succcessfully initialized for push notifications.");
+                    kendoConsole.log("Push token received!");
+                    kendoConsole.log("Verifying device registration...");
 
                     return currentDevice.getRegistration();
                 },
                 function (err) {
-                    app.hideLoading();
-                    kendoConsole.log("Error : " + (err.message));
+                    kendoConsole.log("Failed to initialize the device for push notifications.", true);
+                    kendoConsole.log("Error : " + (err.message), true);
                 }
         ).then(
             function (registration) {
-                app.hideLoading();
-
                 kendoConsole.log("Your device is already registered in Telerik Backend Services.");
                 kendoConsole.log("The app will update the device registration.");
                 kendoConsole.log("Updating the device registration...");
@@ -66,26 +66,28 @@
                 everlive.push.currentDevice()
                     .updateRegistration(customDeviceParameters)
                     .then(function () {
-                        kendoConsole.log("Successfully updated device registration...");
+                        kendoConsole.log("Successfully updated the device registration.");
                     }, function (err) {
-                        kendoConsole.log('Failed to update the device registration: ' + err.message);
+                        kendoConsole.log('Failed to update the device registration: ' + err.message, true);
                     });
             },
             function (err) {
                 if (err.code === 801) {
-                    // there is no such device - register it 
                     kendoConsole.log("Your device is not registered in Backend Services.");
+                    kendoConsole.log("The app will register the device in Backend Services.");
+                    
                     currentDevice.register(customDeviceParameters).then(function (regData) {
                         var regDate = app.formatDate(regData.result.CreatedAt);
-                        var regId = regDara.result.Id;
+                        var regId = regData.result.Id;
                         
                         kendoConsole.log(regDate + " : " + "Your device was successfully registered in Backend Services.");
                         kendoConsole.log("Device Id: " + regId);
+                        kendoConsole.log("Your device is ready to receive push notifications.");
                     }, function (err) {
-                        kendoConsole.log("Failed to register the device: " + err.message);
+                        kendoConsole.log("Failed to register the device: " + err.message, true);
                     });
                 } else {
-                    kendoConsole.log("Failed to retrieve the device registration!");
+                    kendoConsole.log("Failed to retrieve the device registration!", true);
                 }
             }
         );
