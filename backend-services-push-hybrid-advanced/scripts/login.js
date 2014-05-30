@@ -33,7 +33,7 @@
                 
                 app.hideLoading();
              
-                app.navigateToView(app.config.views.users);
+                app.navigateToView(app.config.views.main);
                 
             }, function(err){
                 app.hideLoading();
