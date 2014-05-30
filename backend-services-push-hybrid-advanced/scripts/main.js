@@ -10,7 +10,7 @@
         
         var afterShow = function () {
             // TODO enable the notifications here
-           // app.enablePushNotifications();
+            app.enablePushNotifications();
 
         };
         
@@ -24,4 +24,5 @@
             choose: choose
         }
     }());
+
 }(window));

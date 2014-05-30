@@ -4,6 +4,7 @@
     var app = global.app = global.app || {};
 
     app.usersDataSource = (function () {
+        
         var dataModel = {
             id: Everlive.idField,
             isSelected: false,
@@ -11,6 +12,7 @@
                 return this.get('isSelected') ? "listview-selected" : ''
             }
         };
+        
         var usersDataSource = new kendo.data.DataSource({
             type: 'everlive',
             transport: {
@@ -23,4 +25,5 @@
 
         return usersDataSource;
     }());
+
 }(window));

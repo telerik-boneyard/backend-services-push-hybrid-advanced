@@ -27,6 +27,7 @@
 //    }());
 //}(window));
 app.usersModel = (function (global) {
+    
     var usersViewModel = kendo.observable({
         usersDataSource: app.usersDataSource,
         onUserSelected: function (e) {
