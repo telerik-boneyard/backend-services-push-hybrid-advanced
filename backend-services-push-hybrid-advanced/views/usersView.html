@@ -1,0 +1,33 @@
+<div id="users-list" data-role="view" data-model="app.usersModel" data-after-show="app.MainViewModel.afterShow" data-title="Users">
+    <div data-role="header">
+        <div data-role="navbar">
+            Users
+            <a class="nav-button nav-button-cancel" data-align="left" data-role="backbutton">Back</a>
+            <a class="nav-button nav-button-post" data-align="right" data-role="touch" data-tap="app.sendPush">Send</a>
+        </div>
+    </div>
+    <ul id="users-list-view" data-bind="source: usersDataSource" data-template="users-template" data-role="listview" data-click="app.usersModel.onUserSelected"></ul>
+    <div class="console"></div>
+</div>
+
+<script id="users-template" type="text/x-kendo-template">
+    <div data-bind="attr: { class: isSelectedClass }">
+            <h2 class="person-name">#: DisplayName #</h2>
+    </div>
+		
+</script>
+
+<style>
+    .person-name
+    {
+        color: #000;
+        margin: 0;
+    }
+</style>
+
+<style type="text/css">
+    #users-list .listview-selected
+    {
+        background-color: #0AF5CE;
+    }
+</style>

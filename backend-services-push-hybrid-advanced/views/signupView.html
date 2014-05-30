@@ -2,10 +2,10 @@
      class="signup-view"
 	 data-role="view"
      data-layout="default"
-     data-model="app.singupViewModel"
-	 data-init="app.singupViewModel.init"
-     data-show="app.singupViewModel.show"
-     data-hide="app.singupViewModel.hide">
+     data-model="app.signupViewModel"
+	 data-init="app.signupViewModel.init"
+     data-show="app.signupViewModel.show"
+     data-hide="app.signupViewModel.hide">
 
     <div data-role="header">
         <div data-role="navbar">
@@ -30,6 +30,6 @@
         </ul>
     </form>
     <div id="signupBtnWrp" class="signup-btn-wrp disabled">
-        <a class="btn btn-signup" data-role="button" data-bind="click: signup">Register</a>
+        <a class="btn btn-signup" data-role="touch" data-tap="app.signupViewModel.signup">Register</a>
     </div>
 </div>

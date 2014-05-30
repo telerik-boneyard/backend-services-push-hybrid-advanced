@@ -41,4 +41,9 @@
         return !app.isNullOrEmpty(key) && !regEx.test(key);
     };
     
+    app.formatDate = function(dateString) {
+        var formattedDate = kendo.toString(new Date(dateString), 'G');
+        
+        return formattedDate;
+    }
 }(window));

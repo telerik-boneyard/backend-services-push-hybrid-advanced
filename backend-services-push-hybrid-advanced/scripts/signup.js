@@ -3,7 +3,7 @@
     
     var app = global.app = global.app || {};
     
-    app.singupViewModel = (function () {
+    app.signupViewModel = (function () {
 
         var dataSource,
             $signUpForm,
@@ -47,10 +47,11 @@
             Everlive.$.Users.register(
                 dataSource.Username,
                 dataSource.Password,
-                dataSource)
+                dataSource.DisplayName, 
+            	dataSource.Email)
             .then(function () {
                 app.showAlert("Registration successful");
-                app.navigateToView(app.config.views.init);
+                app.navigateToView(app.config.views.main);
             },
             function (err) {
                 app.showError(err.message);

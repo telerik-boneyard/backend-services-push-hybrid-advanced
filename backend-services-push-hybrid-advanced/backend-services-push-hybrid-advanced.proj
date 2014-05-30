@@ -3,7 +3,7 @@
   <PropertyGroup>
     <ProjectGuid>f6aa10b5-74a3-4b54-bfc8-2e3db2ed4bb4</ProjectGuid>
     <ProjectTypeGuids>{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}</ProjectTypeGuids>
-    <AppIdentifier>com.telerik.everlivePushSampleAdvanced</AppIdentifier>
+    <AppIdentifier>com.telerik.PushNotificationApp</AppIdentifier>
     <ProjectName>backend-services-push-hybrid-advanced</ProjectName>
     <IsRunnable>true</IsRunnable>
     <FrameworkVersion>3.2.0</FrameworkVersion>

@@ -21,25 +21,26 @@
         
         var login = function () {
 
-            var username = $username.val(),
-                password = $password.val();
+            //  var username = $username.val(),
+            //    password = $password.val();
             
-            app.showLoading();
+             var username = "seth",
+                password = "333333"
 
+            app.showLoading();
+			
             app.everlive.Users.login(username, password).then(function () {
                 
                 app.hideLoading();
-                return app.usersModel.load();
+              //  return app.usersModel.load();
                 
-            }).then(function () {
+              //  app.enablePushNotifications();
+                app.navigateToView(app.config.views.users);
                 
-                app.navigateToView(app.config.views.device);
-                
-            }).then(null, function (err) {
-                	app.hideLoading();
+            }, function(err){
+                app.hideLoading();
             		app.showError(err.message);
-            	}
-            );
+            });
         };
         
         return {
