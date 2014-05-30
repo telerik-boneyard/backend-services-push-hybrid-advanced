@@ -59,6 +59,7 @@
                 }
         ).then(
             function (registration) {
+                // var registrationObject = registration.result;
                 kendoConsole.log("Your device is already registered in Telerik Backend Services.");
                 kendoConsole.log("The app will update the device registration.");
                 kendoConsole.log("Updating the device registration...");
