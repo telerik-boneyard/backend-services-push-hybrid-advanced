@@ -30,14 +30,12 @@
             app.showLoading();
 			
             app.everlive.Users.login(username, password).then(function () {
-                
                 app.hideLoading();
-             
                 app.navigateToView(app.config.views.main);
                 
             }, function(err){
                 app.hideLoading();
-            		app.showError(err.message);
+            	app.showError(err.message);
             });
         };
         
