@@ -323,3 +323,23 @@
 #pushApp .signup-view .signup-btn-wrp {
     margin: 0 1em;
 }
+
+/* Users list */
+
+#pushApp .users-list-view li {
+    color: #000;
+    padding: 0;
+    border: 0 none;
+}
+
+#pushApp .users-list-view li div {
+    padding: .7em;
+    border: 1px solid rgba(0, 0, 0, .1);
+	border-width: 0 0 1px 0;
+}
+
+#pushApp .users-list-view li .listview-selected {
+    background-color: #3598db;
+    color: #fff;
+    border-color: #1a77b6;
+}
