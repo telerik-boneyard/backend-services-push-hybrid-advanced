@@ -73,8 +73,11 @@
                     // there is no such device - register it 
                     kendoConsole.log("Your device is not registered in Backend Services.");
                     currentDevice.register(customDeviceParameters).then(function (regData) {
-                        kendoConsole.log("Your device was successfully registered in Backend Services.");
-                        kendoConsole.log("Device Id: " + regData.Id);
+                        var regDate = app.formatDate(regData.result.CreatedAt);
+                        var regId = regDara.result.Id;
+                        
+                        kendoConsole.log(regDate + " : " + "Your device was successfully registered in Backend Services.");
+                        kendoConsole.log("Device Id: " + regId);
                     }, function (err) {
                         kendoConsole.log("Failed to register the device: " + err.message);
                     });
