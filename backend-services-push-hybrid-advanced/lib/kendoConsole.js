@@ -1,8 +1,8 @@
-(function($, undefined){
+(function ($, undefined) {
     var count = 0;
 
     window.kendoConsole = {
-        log: function(message, isError, container) {
+        log: function (message, isError, container) {
             var lastContainer = $(".console div:first", container),
                 counter = lastContainer.find(".count").detach(),
                 lastMessage = lastContainer.text(),
@@ -18,8 +18,12 @@
                     })
                     .html(message)
                     .prependTo($(".console", container))
-                    .animate({ marginTop: 0 }, 300)
-                    .animate({ backgroundColor: isError ? "#ffdddd" : "#ffffff" }, 800);
+                    .animate({
+                        marginTop: 0
+                    }, 300)
+                    .animate({
+                        backgroundColor: isError ? "#ffdddd" : "#ffffff"
+                    }, 800);
             } else {
                 count++;
 
@@ -32,7 +36,7 @@
             }
         },
 
-        error: function(message) {
+        error: function (message) {
             this.log(message, true);
         }
     };

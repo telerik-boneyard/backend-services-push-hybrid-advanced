@@ -10,17 +10,17 @@
     var notificationStructure = {
         "Android": {
             "data": {
-                "title": "Backend Services Push Sample",
-                "message": "Hello, push notifications!",
-                "customData": customData
-            }
+                    "title": "Backend Services Push Sample",
+                    "message": "Hello, push notifications!",
+                    "customData": customData
+                }
         },
         "IOS": {
             "aps": {
-                "alert": "Hello, push notifications!",
-                "badge": 1,
-                "sound": "default"
-            },
+                    "alert": "Hello, push notifications!",
+                    "badge": 1,
+                    "sound": "default"
+                },
             "customData": customData
         }
     };
@@ -52,5 +52,4 @@
             kendoConsole.log("Failed to create push notification: " + err.message);
         });
     };
-    
 }(window));
