@@ -13,6 +13,7 @@
             }
         };
         
+        // TODO - make a new data source 
         var usersDataSource = new kendo.data.DataSource({
             type: 'everlive',
             transport: {
