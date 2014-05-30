@@ -1,9 +1,12 @@
 (function (global) {
-    var app = app = global.app || {};
+    'use strict';
+
+    var app = global.app = global.app || {};
 
     var onAndroidPushReceived = function (e) {
         var message = e.message;
-        var dateCreated = app.formatDate(e.dateCreated);
+        //kendoConsole.log(JSON.stringify(e));
+        var dateCreated = app.formatDate(e.payload.customData.dateCreated);
 
         kendoConsole.log("Push notification received:");
         kendoConsole.log(message + ' : ' + dateCreated);
@@ -19,7 +22,7 @@
 
     var pushSettings = {
         android: {
-            senderID: app.config.androidProjectNumber
+            senderID: app.androidProjectNumber
         },
         iOS: {
             badge: "true",

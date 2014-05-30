@@ -51,5 +51,6 @@
         }, function (err) {
             kendoConsole.log("Failed to create push notification: " + err.message);
         });
-    }
+    };
+    
 }(window));
