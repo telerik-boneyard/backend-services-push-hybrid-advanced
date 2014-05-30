@@ -37,7 +37,10 @@
 
 /* KendoUI Overwrites */
 
-.km-flat .km-loader,
+.km-flat .km-loader {
+	background: rgba(0, 0, 0, .5);
+}
+
 .km-flat .km-rowinsert,
 .km-flat .km-state-active,
 .km-flat .km-scroller-pull,
@@ -327,19 +330,37 @@
 /* Users list */
 
 #pushApp .users-list-view li {
-    color: #000;
     padding: 0;
     border: 0 none;
+    color: #000;
 }
 
 #pushApp .users-list-view li div {
     padding: .7em;
     border: 1px solid rgba(0, 0, 0, .1);
-	border-width: 0 0 1px 0;
+  border-width: 0 0 1px 0;
 }
 
 #pushApp .users-list-view li .listview-selected {
+    border-color: #1a77b6;
     background-color: #3598db;
     color: #fff;
-    border-color: #1a77b6;
+}
+
+/* Console */
+
+.console {
+    margin: 1em 0 0;
+}
+
+.console div {
+    padding: .35em .5em;
+    border: 1px solid #78baed;
+    border-width: 0 0 1px 0;
+    color: #000;
+    font-size: .85em;
+}
+
+.console div.error {
+    border-color: #ff7e7e;
 }

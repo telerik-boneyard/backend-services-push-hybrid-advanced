@@ -17,7 +17,7 @@
                         backgroundColor: isError ? "#ffbbbb" : "#bbddff"
                     })
                     .html(message)
-                    .appendTo($(".console", container))
+                    .prependTo($(".console", container))
                     .animate({ marginTop: 0 }, 300)
                     .animate({ backgroundColor: isError ? "#ffdddd" : "#ffffff" }, 800);
             } else {
