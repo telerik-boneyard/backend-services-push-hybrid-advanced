@@ -32,9 +32,7 @@
             app.everlive.Users.login(username, password).then(function () {
                 
                 app.hideLoading();
-              //  return app.usersModel.load();
-                
-              //  app.enablePushNotifications();
+             
                 app.navigateToView(app.config.views.users);
                 
             }, function(err){
