@@ -27,7 +27,7 @@
 //    }());
 //}(window));
 app.usersModel = (function (global) {
-    var viewModel = kendo.observable({
+    var usersViewModel = kendo.observable({
         usersDataSource: app.usersDataSource,
         onUserSelected: function (e) {
             var isSelected = e.dataItem.get("isSelected");
@@ -52,6 +52,6 @@ app.usersModel = (function (global) {
         }
     });
 
-    return viewModel;
+    return usersViewModel;
 
 })(window);

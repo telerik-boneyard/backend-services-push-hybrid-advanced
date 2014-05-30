@@ -3,17 +3,18 @@
 
     var onAndroidPushReceived = function (e) {
         var message = e.message;
-        var dateCreated = kendo.toString(new Date(e.dateCreated),'u');
-        
+        var dateCreated = app.formatDate(e.dateCreated);
+
+        kendoConsole.log("Push notification received:");
         kendoConsole.log(message + ' : ' + dateCreated);
     };
 
     var onIosPushReceived = function (e) {
-       var message = e.alert;
-       var dateCreated = kendo.toString(new Date(e.dateCreated),'G');
-        
-       kendoConsole.log("Push notification received:");
-       kendoConsole.log(message + ' : ' + dateCreated);
+        var message = e.alert;
+        var dateCreated = app.formatDate(e.dateCreated);
+
+        kendoConsole.log("Push notification received:");
+        kendoConsole.log(message + ' : ' + dateCreated);
     };
 
     var pushSettings = {
@@ -31,20 +32,20 @@
     // pass the cb functions here
     app.enablePushNotifications = function (success, error) {
         var everlive = app.everlive;
-        
+
         var customDeviceParameters = {
             "LastLoginDate": new Date()
         };
-        
+
         var currentDevice = everlive.push.currentDevice(app.constants.EMULATOR_MODE);
-        
+
         kendoConsole.log("Initializing push notifications for " + device.platform + '...');
         currentDevice.enableNotifications(pushSettings)
             .then(
                 function (initResult) {
                     kendoConsole.log("Push token received!");
                     // kendoConsole.log(initResult.token);
-                    
+
                     return currentDevice.getRegistration();
                 },
                 function (err) {
@@ -54,11 +55,11 @@
         ).then(
             function (registration) {
                 app.hideLoading();
-                
+
                 kendoConsole.log("Your device is already registered in Telerik Backend Services.");
                 kendoConsole.log("The app will update the device registration.");
                 kendoConsole.log("Updating the device registration...");
-              
+
                 everlive.push.currentDevice()
                     .updateRegistration(customDeviceParameters)
                     .then(function () {
