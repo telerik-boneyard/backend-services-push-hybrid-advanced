@@ -45,5 +45,7 @@
         var formattedDate = kendo.toString(new Date(dateString), 'G');
         
         return formattedDate;
-    }
+    };
+    
+    app.currentUserUsername = kendo.observable({"username" : null});
 }(window));

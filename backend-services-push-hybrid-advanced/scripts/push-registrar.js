@@ -32,13 +32,13 @@
         notificationCallbackAndroid: onAndroidPushReceived,
         notificationCallbackIOS: onIosPushReceived,
     };
-    // TODO pass the cb functions here
-    app.enablePushNotifications = function (success, error) {
-        var devicePlatform = device.platform; // get the device platform from Cordova
+
+    app.enablePushNotifications = function () {
+        var devicePlatform = device.platform; // get the device platform from the Cordova API
         kendoConsole.log("Initializing push notifications for " + devicePlatform + '...');
         
-        var everlive = app.everlive;
-        var currentDevice = everlive.push.currentDevice(app.constants.EMULATOR_MODE);
+        var currentDevice = app.everlive.push.currentDevice(app.constants.EMULATOR_MODE);
+        
 		var customDeviceParameters = {
             "LastLoginDate": new Date()
         };
@@ -81,9 +81,7 @@
                         var regDate = app.formatDate(regData.result.CreatedAt);
                         var regId = regData.result.Id;
                         
-                        kendoConsole.log(regDate + " : " + "Your device was successfully registered in Backend Services.");
-                        kendoConsole.log("Device Id: " + regId);
-                        kendoConsole.log("Your device is ready to receive push notifications.");
+                        
                     }, function (err) {
                         kendoConsole.log("Failed to register the device: " + err.message, true);
                     });

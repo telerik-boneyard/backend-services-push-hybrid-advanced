@@ -3,13 +3,13 @@
     var app = global.app = global.app || {};
 
     app.usersModel = (function () {
+
         var onUserSelected = function (e) {
             var isSelected = e.dataItem.get("isSelected");
             var newState = isSelected ? false : true;
             e.dataItem.set("isSelected", newState);
         };
 
-        // TODO - refactor this function
         var getSelectedUsersFromDataSource = function () {
             var dataSource = app.usersModel.usersDataSource;
             var data = dataSource.view();
@@ -28,7 +28,7 @@
         };
 
         var handleAction = function () {
-            app.navigateToView('views/mainView.html');
+            app.navigateToView(app.config.views.main);
             app.sendPush();
         }
 

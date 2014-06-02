@@ -13,7 +13,7 @@
 
             afterShow: function () {
                 if (!isDeviceInitialized) {
-                    // initializing the notifications in this event
+                    // initializing the push notifications 
                     app.enablePushNotifications();
                     isDeviceInitialized = true;
                 }

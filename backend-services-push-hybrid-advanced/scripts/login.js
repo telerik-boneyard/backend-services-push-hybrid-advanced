@@ -22,10 +22,17 @@
             //    password = $password.val();
             var username = "andy",
                 password = "333333"
-
+			
             app.showLoading();
 			
-            app.everlive.Users.login(username, password).then(function () {
+            app.everlive.Users.login(username, password).then(function (data) {
+                // get the full current user object
+                app.everlive.Users.currentUser(function (data) {
+                	app.currentUserUsername.set('username', data.result.Username);
+                }, function () {
+                	
+                });
+                
                 app.hideLoading();
                 app.navigateToView(app.config.views.main);
             }, function(err) {

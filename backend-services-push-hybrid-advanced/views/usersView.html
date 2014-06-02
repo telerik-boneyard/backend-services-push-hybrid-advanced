@@ -1,12 +1,18 @@
-<div id="users-list" class="users-list" data-role="view" data-model="app.usersModel" data-title="Users">
+<div id="users-list" class="view users-list" data-role="view" data-model="app.usersModel" data-title="Users">
     <div data-role="header">
         <div data-role="navbar">
             Users
-            <a class="nav-button nav-button-cancel" data-align="left" data-role="backbutton">Back</a>
-            <a class="nav-button nav-button-post" data-align="right" data-role="touch" data-tap="app.usersModel.handleAction">Send</a>
+            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton">Back</a>
         </div>
     </div>
+
     <ul id="users-list-view" class="users-list-view" data-bind="source: usersDataSource" data-template="users-template" data-role="listview" data-click="app.usersModel.onUserSelected"></ul>
+
+    <div data-role="footer">
+        <span data-role="touch" data-bind="events: { tap: handleAction }">
+        	<a data-role="button" class="btn btn-action">Send</a>
+        </span>
+    </div>
 </div>
 
 <script id="users-template" type="text/x-kendo-template">
