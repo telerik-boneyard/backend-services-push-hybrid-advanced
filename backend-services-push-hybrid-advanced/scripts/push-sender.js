@@ -44,12 +44,12 @@
             "IOS": notificationStructure.IOS
         };
 
-        Everlive.$.push.notifications.create(notificationObject, function (data) {
+        app.everlive.push.notifications.create(notificationObject, function (data) {
             var createdAt = app.formatDate(data.result.CreatedAt);
             
             kendoConsole.log("Notification created at: " + createdAt);
         }, function (err) {
-            kendoConsole.log("Failed to create push notification: " + err.message);
+            kendoConsole.log("Failed to create push notification: " + err.message, true);
         });
     };
 }(window));

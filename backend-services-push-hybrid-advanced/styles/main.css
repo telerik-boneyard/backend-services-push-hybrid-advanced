@@ -102,6 +102,10 @@
     content: '';
 }
 
+#pushApp .view .km-content {
+	background-color: #fff;
+}
+
 /* Forms */
 
 ::-webkit-input-placeholder {
@@ -159,7 +163,7 @@
     opacity: .35;
 }
 
-#pushApp .btn-login,
+#pushApp .btn-action,
 #pushApp .signup-view .btn-signup {
     background-color: #1bbc9b;
 }
@@ -190,12 +194,22 @@
     background-image: url(images/icon-add.png);
 }
 
+#pushApp .km-header .nav-button-logout {
+    background-image: url(images/icon-logout.png);
+    background-position: 50% 50%;
+}
+
 #pushApp .km-header .nav-button-cancel,
 #pushApp .km-header .nav-button-post {
     width: auto;
     height: 2.5em;
     font-size: .85rem;
     line-height: 2.5em;
+}
+
+#pushApp .km-footer .btn {
+    display: block;
+    text-align: center;
 }
 
 /* App Header */
@@ -223,6 +237,11 @@
 }
 
 /* App Footer */
+
+#pushApp .view .km-footer {
+    padding: 1em;
+    background: #fff none;
+}
 
 #pushApp .init-view .km-footer {
     background-color: transparent;

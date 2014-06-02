@@ -28,7 +28,7 @@
         };
 
         var handleAction = function () {
-            app.navigateToView('views/mainView.html');
+            app.navigateToView(app.config.views.main);
             app.sendPush();
         }
 
