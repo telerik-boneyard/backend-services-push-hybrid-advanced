@@ -3,29 +3,42 @@
 
     var app = global.app = global.app || {};
 
-    var customData = {
-        "dateCreated": new Date()
-    };
+    app.sendPush = function () {
+        // custom data object for Android and iOS
+        var customData = {
+            "dateCreated": new Date()
+        };
 
-    var notificationStructure = {
-        "Android": {
-            "data": {
+        var currentUsername = app.currentUserUsername.get('username');
+        var pushMessage = currentUsername + ": " + "Hello, push notifications!";
+
+        // construct the payload for the notification
+        var notificationStructure = {
+            "Message": pushMessage,
+            "Android": {
+                "data": {
                     "title": "Backend Services Push Sample",
-                    "message": "Hello, push notifications!",
+                    "message": pushMessage,
                     "customData": customData
                 }
-        },
-        "IOS": {
-            "aps": {
-                    "alert": "Hello, push notifications!",
+            },
+            "IOS": {
+                "aps": {
+                    "alert": pushMessage,
                     "badge": 1,
                     "sound": "default"
                 },
-            "customData": customData
-        }
-    };
+                "customData": customData
+            }
+        };
 
-    app.sendPush = function () {
+        var notificationObject = {
+            "Filter": JSON.stringify(conditions),
+            "Android": notificationStructure.Android,
+            "IOS": notificationStructure.IOS
+        };
+
+        // target the notification
         var recipients = app.usersModel.getSelectedUsersFromDataSource();
         var conditions;
 
@@ -38,18 +51,11 @@
             };
         }
 
-        var notificationObject = {
-            "Filter": JSON.stringify(conditions),
-            "Android": notificationStructure.Android,
-            "IOS": notificationStructure.IOS
-        };
-
-        Everlive.$.push.notifications.create(notificationObject, function (data) {
+        app.everlive.push.notifications.create(notificationObject, function (data) {
             var createdAt = app.formatDate(data.result.CreatedAt);
-            
             kendoConsole.log("Notification created at: " + createdAt);
         }, function (err) {
-            kendoConsole.log("Failed to create push notification: " + err.message);
+            kendoConsole.log("Failed to create push notification: " + err.message, true);
         });
     };
 }(window));

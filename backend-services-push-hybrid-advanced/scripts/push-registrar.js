@@ -5,10 +5,8 @@
 
     var onAndroidPushReceived = function (e) {
         var message = e.message;
-        //kendoConsole.log(JSON.stringify(e));
         var dateCreated = app.formatDate(e.payload.customData.dateCreated);
 
-        kendoConsole.log("Push notification received:");
         kendoConsole.log(message + ' : ' + dateCreated);
     };
 
@@ -16,7 +14,6 @@
         var message = e.alert;
         var dateCreated = app.formatDate(e.dateCreated);
 
-        kendoConsole.log("Push notification received:");
         kendoConsole.log(message + ' : ' + dateCreated);
     };
 

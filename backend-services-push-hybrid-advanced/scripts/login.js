@@ -26,7 +26,7 @@
             app.showLoading();
 			
             app.everlive.Users.login(username, password).then(function (data) {
-                // get the full current user object
+                // get the username for the current user
                 app.everlive.Users.currentUser(function (data) {
                 	app.currentUserUsername.set('username', data.result.Username);
                 }, function () {
