@@ -7,14 +7,14 @@
         var message = e.message;
         var dateCreated = app.formatDate(e.payload.customData.dateCreated);
 
-        kendoConsole.log(message + ' : ' + dateCreated);
+        kendoConsole.log(message + '; ' + dateCreated);
     };
 
     var onIosPushReceived = function (e) {
         var message = e.alert;
         var dateCreated = app.formatDate(e.dateCreated);
 
-        kendoConsole.log(message + ' : ' + dateCreated);
+        kendoConsole.log(message + '; ' + dateCreated);
     };
 
     var pushSettings = {
@@ -58,7 +58,6 @@
             function (registration) {
                 // var registrationObject = registration.result;
                 kendoConsole.log("Your device is already registered in Telerik Backend Services.");
-                kendoConsole.log("The app will update the device registration.");
                 kendoConsole.log("Updating the device registration...");
 
                 everlive.push.currentDevice()
@@ -72,12 +71,14 @@
             function (err) {
                 if (err.code === 801) {
                     kendoConsole.log("Your device is not registered in Backend Services.");
-                    kendoConsole.log("The app will register the device in Backend Services.");
+                    kendoConsole.log("Registering the device in Backend Services...");
                     
                     currentDevice.register(customDeviceParameters).then(function (regData) {
                         var regDate = app.formatDate(regData.result.CreatedAt);
                         var regId = regData.result.Id;
                         
+                        kendoConsole.log("Device Id: " + regId);
+                 	   kendoConsole.log("Your device is successfully registered in Backend Services.");
                         
                     }, function (err) {
                         kendoConsole.log("Failed to register the device: " + err.message, true);

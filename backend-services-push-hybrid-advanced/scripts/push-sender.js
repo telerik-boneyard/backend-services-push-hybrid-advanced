@@ -4,11 +4,23 @@
     var app = global.app = global.app || {};
 
     app.sendPush = function () {
-        // custom data object for Android and iOS
+        // target the notification
+        var conditions;
+        var recipients = app.usersModel.getSelectedUsersFromDataSource();
+		
+        if (Array.isArray(recipients) && recipients.length > 0) {
+            // filter on the userId field in each device
+            conditions = {
+                "User.Id": {
+                    "$in": recipients
+                }
+            };
+        }
+		 // custom data object for Android and iOS
         var customData = {
             "dateCreated": new Date()
         };
-
+		
         var currentUsername = app.currentUserUsername.get('username');
         var pushMessage = currentUsername + ": " + "Hello, push notifications!";
 
@@ -37,20 +49,7 @@
             "Android": notificationStructure.Android,
             "IOS": notificationStructure.IOS
         };
-
-        // target the notification
-        var recipients = app.usersModel.getSelectedUsersFromDataSource();
-        var conditions;
-
-        if (Array.isArray(recipients) && recipients.length > 0) {
-            // filter on the userId field in each device
-            conditions = {
-                "User.Id": {
-                    "$in": recipients
-                }
-            };
-        }
-
+        
         app.everlive.push.notifications.create(notificationObject, function (data) {
             var createdAt = app.formatDate(data.result.CreatedAt);
             kendoConsole.log("Notification created at: " + createdAt);
