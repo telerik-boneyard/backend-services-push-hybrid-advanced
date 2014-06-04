@@ -27,7 +27,7 @@
             return checkedIds;
         };
 
-        var handleAction = function () {
+        var handleSendAction = function () {
             app.navigateToView(app.config.views.main);
             app.sendPush();
         }
@@ -36,7 +36,7 @@
             usersDataSource: app.usersDataSource,
             onUserSelected: onUserSelected,
             getSelectedUsersFromDataSource: getSelectedUsersFromDataSource,
-            handleAction: handleAction
+            handleSendAction: handleSendAction
         };
     }());
 }(window));

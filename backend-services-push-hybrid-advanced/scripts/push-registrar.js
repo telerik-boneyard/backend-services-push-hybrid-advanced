@@ -95,7 +95,8 @@
 
                     _onDeviceIsNotRegistered();
 
-                    currentDevice.register(customDeviceParameters).then(function (regData) {
+                    currentDevice.register(customDeviceParameters)
+                    .then(function (regData) {
                         _onDeviceIsSuccessfullyRegistered();
 
                     }, function (err) {

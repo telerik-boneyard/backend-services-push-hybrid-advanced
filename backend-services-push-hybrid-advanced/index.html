@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title></title>
     <meta charset="utf-8">
     <link href="lib/kendo/styles/kendo.mobile.all.min.css" rel="stylesheet">
-	<link href="styles/main.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
 
     <script src="cordova.js"></script>
+    
     <script src="lib/kendo/js/jquery.min.js"></script>
     <script src="lib/kendo/js/kendo.mobile.min.js"></script>
     <script src="lib/everlive/everlive.all.min.js"></script>
-	<script src="lib/kendoConsole.js"></script>
-    
+    <script src="lib/kendoConsole.js"></script>
+
     <script src="scripts/config.js"></script>
     <script src="scripts/common.js"></script>
     <script src="scripts/login.js"></script>
     <script src="scripts/push-registrar.js"></script>
+    <script src="scripts/push-factory.js"></script>
     <script src="scripts/push-sender.js"></script>
     <script src="scripts/usersDataSource.js"></script>
     <script src="scripts/users.js"></script>
@@ -23,20 +26,16 @@
     <script src="scripts/signup.js"></script>
     <script src="scripts/app.js"></script>
 </head>
+
 <body id="pushApp">
     <div data-role="layout" data-id="default">
         <!--View content will render here-->
     </div>
-    
-    <div id="initView"
-         class="init-view form-view"
-         data-role="view"
-         data-model="app.loginViewModel"
-		 data-init="app.loginViewModel.init"
-		 data-show="app.loginViewModel.show">
-        
+
+    <div id="initView" class="init-view form-view" data-role="view" data-model="app.loginViewModel" data-init="app.loginViewModel.init" data-show="app.loginViewModel.show">
+
         <div data-role="header"></div>
-        
+
         <h1 class="app-logo hide-text center-block">Telerik <small>DevCloud</small></h1>
         <h2 class="app-name center-text">Friends <small>Sample Application</small></h2>
         <form id="login-form">
@@ -59,8 +58,11 @@
                 <a data-role="button" href="views/signupView.html" class="btn-signup">Don't have an account?</a>
             </li>
         </ol>
-        
-        <div data-role="footer"><p>&copy; <span data-bind="text: getYear"></span> Telerik Inc.</p></div>
+
+        <div data-role="footer">
+            <p>&copy; <span data-bind="text: getYear"></span> Telerik Inc.</p>
+        </div>
     </div>
 </body>
+
 </html>
