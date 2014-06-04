@@ -1,8 +1,8 @@
 (function (global) {
     'use strict';
-    
+
     var app = global.app = global.app || {};
-    
+
     app.signupViewModel = (function () {
 
         var dataSource,
@@ -16,7 +16,9 @@
             $signUpForm = $('#signUp');
             $formFields = $signUpForm.find('input, textarea, select');
             $signupBtnWrp = $('#signupBtnWrp');
-            validator = $signUpForm.kendoValidator({ validateOnBlur: false }).data('kendoValidator');
+            validator = $signUpForm.kendoValidator({
+                validateOnBlur: false
+            }).data('kendoValidator');
 
             $formFields.on('keyup keypress blur change input', function () {
                 if (validator.validate()) {
@@ -41,21 +43,21 @@
         var hide = function () {
             $signupBtnWrp.addClass('disabled');
         };
-        
+
         var signup = function () {
 
-            Everlive.$.Users.register(
+            app.everlive.Users.register(
                 dataSource.Username,
                 dataSource.Password,
-                dataSource.DisplayName, 
-            	dataSource.Email)
-            .then(function () {
-                app.showAlert("Registration successful");
-                app.navigateToView(app.config.views.main);
-            },
-            function (err) {
-                app.showError(err.message);
-            });
+                dataSource.DisplayName,
+                dataSource.Email)
+                .then(function () {
+                        app.showAlert("Registration successful");
+                        app.navigateToView(app.config.views.main);
+                    },
+                    function (err) {
+                        app.showError(err.message);
+                    });
         };
 
         return {
@@ -66,5 +68,5 @@
         };
 
     }());
-    
+
 }(window));

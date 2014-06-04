@@ -4,45 +4,50 @@
     var app = global.app = global.app || {};
 
     var _onDeviceIsSuccessfullyInitialized = function () {
-        kendoConsole.log("The device is succcessfully initialized for push notifications.");
-        kendoConsole.log("Push token received!");
-        kendoConsole.log("Verifying device registration...");
+        appConsole.log("The device is succcessfully initialized for push notifications.");
+        appConsole.log("Push token received!");
+        appConsole.log("Verifying device registration...");
     }
     var _onDeviceIsSuccessfullyRegistered = function () {
-        kendoConsole.log("Your device is successfully registered in Backend Services.");
-        kendoConsole.log("You can receive push notifications");
+        appConsole.log("Your device is successfully registered in Backend Services.");
+        appConsole.log("You can receive push notifications.");
     };
 
     var _onDeviceIsAlreadyRegistered = function () {
-        kendoConsole.log("Your device is already registered in Telerik Backend Services.");
-        kendoConsole.log("Updating the device registration...");
+        appConsole.log("Your device is already registered in Telerik Backend Services.");
+        appConsole.log("Updating the device registration...");
     };
 
     var _onDeviceIsNotRegistered = function () {
-        kendoConsole.log("Your device is not registered in Backend Services.");
-        kendoConsole.log("Registering the device in Backend Services...");
+        appConsole.log("Your device is not registered in Backend Services.");
+        appConsole.log("Registering the device in Backend Services...");
     };
 
     var _onDeviceRegistrationUpdated = function () {
-        kendoConsole.log("Successfully updated the device registration.");
+        appConsole.log("Successfully updated the device registration.");
     };
 
     var _onPushErrorOccurred = function (message) {
-        kendoConsole.log("Error: " + message, true);
+        appConsole.log("Error: " + message, true);
     };
 
+    var _processPushMessage = function (message, date) {
+    	appConsole.log(date + " : " + message);
+    };
+    
     var onAndroidPushReceived = function (e) {
         var message = e.message;
         var dateCreated = app.formatDate(e.payload.customData.dateCreated);
-
-        kendoConsole.log(message + '; ' + dateCreated);
+        
+        _processPushMessage(message, dateCreated);
     };
+    
 
     var onIosPushReceived = function (e) {
         var message = e.alert;
         var dateCreated = app.formatDate(e.dateCreated);
 
-        kendoConsole.log(message + '; ' + dateCreated);
+      _processPushMessage(message, dateCreated);
     };
 
     var pushSettings = {
@@ -60,7 +65,7 @@
 
     app.enablePushNotifications = function () {
         var devicePlatform = device.platform; // get the device platform from the Cordova API
-        kendoConsole.log("Initializing push notifications for " + devicePlatform + '...');
+        appConsole.log("Initializing push notifications for " + devicePlatform + '...');
 
         var currentDevice = app.everlive.push.currentDevice(app.constants.EMULATOR_MODE);
 

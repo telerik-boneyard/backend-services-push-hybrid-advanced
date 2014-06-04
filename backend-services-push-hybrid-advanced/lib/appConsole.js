@@ -1,7 +1,7 @@
 (function ($, undefined) {
     var count = 0;
 
-    window.kendoConsole = {
+    window.appConsole = {
         log: function (message, isError, container) {
             var lastContainer = $(".console div:first", container),
                 counter = lastContainer.find(".count").detach(),

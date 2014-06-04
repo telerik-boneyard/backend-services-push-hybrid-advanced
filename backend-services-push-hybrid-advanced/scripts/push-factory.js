@@ -5,7 +5,7 @@
 
     app.constructNotification = function (sender, recipients) {
         var conditions;
-
+		
         if (Array.isArray(recipients) && recipients.length > 0) {
             // filter on the userId field in each device
             conditions = {

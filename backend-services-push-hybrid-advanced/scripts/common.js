@@ -48,4 +48,21 @@
     };
     
     app.currentUserUsername = kendo.observable({"username" : null});
+    
+    app.getSelectedUsersFromDataSource = function () {
+        var dataSource = app.usersModel.usersDataSource;
+        var data = dataSource.view();
+
+        var checkedUsers = [];
+
+        $(data).map(function (index, item) {
+            if (item.isSelected) {
+                // var model = {'Id' : item.Id, 'Username' : item.Username};
+                checkedUsers.push(item.Id);
+                item.set("isSelected", false);
+            }
+        });
+
+        return checkedUsers;
+    };
 }(window));

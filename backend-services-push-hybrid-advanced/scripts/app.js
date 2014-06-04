@@ -6,7 +6,6 @@
     var fixViewResize = function () {
         
         if (device.platform === 'iOS') {
-            
             setTimeout(function() {
                 $(document.body).height(window.innerHeight);
             }, 10);
@@ -18,7 +17,6 @@
         navigator.splashscreen.hide();
         
         if (!app.isKeySet(app.config.everlive.apiKey)) {
-            //app.mobile.navigate(app.config.views.noApiKey, 'none');
             $(app.config.views.init).hide();
             $('#pushApp').addClass('noapikey-scrn').html(app.constants.NO_API_KEY_MESSAGE);
             return;
