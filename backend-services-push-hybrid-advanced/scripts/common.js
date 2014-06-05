@@ -25,7 +25,8 @@
     };
     
     app.logout = function () {
-        return app.everlive.Users.logout();
+        app.everlive.Users.logout();
+        app.navigateToView(app.config.views.init);
     };
     
     app.getYear = function () {
