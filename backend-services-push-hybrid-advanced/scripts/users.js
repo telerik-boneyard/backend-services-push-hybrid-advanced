@@ -3,7 +3,6 @@
     var app = global.app = global.app || {};
 
     app.usersModel = (function () {
-
         var onUserSelected = function (e) {
             var isSelected = e.dataItem.get("isSelected");
             var newState = isSelected ? false : true;
@@ -12,7 +11,7 @@
 
         var handleSendAction = function () {
             app.navigateToView(app.config.views.main);
-            app.sendPush();
+            app.PushSender.send();
         }
 
         return {
