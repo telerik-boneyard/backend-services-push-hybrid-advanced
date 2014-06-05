@@ -9,7 +9,7 @@
     };
 
     app.showError = function(message) {
-        app.helper.showAlert(message, 'Error occured');
+        app.showAlert(message, 'Error occured');
     };
     
     app.showLoading = function () {
@@ -25,8 +25,12 @@
     };
     
     app.logout = function () {
-        app.everlive.Users.logout();
-        app.navigateToView(app.config.views.init);
+        navigator.notification.confirm('This will logout you, are your sure?', function (buttonIndex) {
+        	if (buttonIndex === 1) {
+        		app.everlive.Users.logout();
+        		app.navigateToView(app.config.views.init);
+        	}
+        }, "Logout", ["OK", "Cancel"]);
     };
     
     app.getYear = function () {

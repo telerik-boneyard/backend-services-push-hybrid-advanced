@@ -15,7 +15,7 @@
                 
                 if (!isDeviceInitialized) {
                     // initializing the push notifications 
-                    app.enablePushNotifications();
+                    app.PushRegistrar.enablePushNotifications();
                     isDeviceInitialized = app.everlive.push.currentDevice().isInitialized;
                 } 
             }

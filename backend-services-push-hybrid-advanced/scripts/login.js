@@ -7,30 +7,30 @@
         var $username,
             $password;
         
-        var init = function () {
-            $username = $('#loginUsername');
-            $password = $('#loginPassword');
-        };
+        var events = {
+            init : function () {
+                $username = $('#loginUsername');
+                $password = $('#loginPassword');
+            },
         
-        var show = function () {
-            $username.val('');
-            $password.val('');
-        };
+            show : function () {
+                $username.val('');
+                $password.val('');
+            }   
+        }
         
         var login = function () {
-            //  var username = $username.val(),
-            //    password = $password.val();
-            var username = "andy",
-                password = "333333"
-			
+            var username = $username.val(),
+                password = $password.val();
+            
             app.showLoading();
 			
             app.everlive.Users.login(username, password).then(function (data) {
                 // get the username for the current user
                 app.everlive.Users.currentUser(function (data) {
-                	app.currentUserUsername.set('username', data.result.Username);
-                }, function () {
-                	
+                    app.currentUserUsername.set('username', data.result.Username);
+                }, function (err) {
+                    app.showError(err.message);
                 });
                 
                 app.hideLoading();
@@ -42,8 +42,7 @@
         };
         
         return {
-            init: init,
-            show: show,
+            events: events,
             login: login,
             getYear: app.getYear
         };
