@@ -12,7 +12,7 @@
         var handleSendAction = function () {
             app.navigateToView(app.config.views.main);
             app.PushSender.send();
-        }
+        };
 
         return {
             usersDataSource: app.usersDataSource,

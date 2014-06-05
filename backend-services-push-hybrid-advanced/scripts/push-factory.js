@@ -5,11 +5,11 @@
 
     app.PushFactory = (function () {
         var create = function (sender, recipients) {
-            var conditions;
+            var filter;
 
             if (Array.isArray(recipients) && recipients.length > 0) {
                 // filter on the userId field in each device
-                conditions = {
+                filter = {
                     "User.Id": {
                         "$in": recipients
                     }
@@ -23,30 +23,34 @@
             var pushMessage = sender + ": " + "Hello, push notifications!";
 
             // construct the payload for the notification
-            var notificationStructure = {
-                "Message": pushMessage,
-                "Android": {
-                    "data": {
-                        "title": "Backend Services Push Sample",
-                        "message": pushMessage,
-                        "customData": customData
-                    }
-                },
-                "IOS": {
-                    "aps": {
-                        "alert": pushMessage,
-                        "badge": 1,
-                        "sound": "default"
-                    },
+            var generalPayload = {
+                "Message": pushMessage
+            };
+            
+            var androidPayload = { 
+                "data": {
+                    "title": "Backend Services Push Sample",
+                    "message": pushMessage,
                     "customData": customData
+                    
                 }
+            };
+            
+            var iosPayload = {               
+                "aps": {
+                    "alert": pushMessage,
+                    "badge": 1,
+                    "sound": "default"
+                },
+                "customData": customData
+                
             };
 
             var notificationObject = {
-                "Filter": JSON.stringify(conditions),
-                "Message": notificationStructure.Message,
-                "Android": notificationStructure.Android,
-                "IOS": notificationStructure.IOS
+                "Filter": JSON.stringify(filter),
+                "Message": generalPayload,
+                "Android": androidPayload,
+                "IOS": iosPayload
             };
 
             return notificationObject;
