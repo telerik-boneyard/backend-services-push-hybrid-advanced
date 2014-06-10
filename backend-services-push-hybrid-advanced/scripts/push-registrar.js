@@ -44,7 +44,11 @@
         };
     
         var onWpPushReceived = function (e) {
-            JSON.stringify(e);
+           if (e.type == "toast" && e.jsonContent) {
+        	var message = e.jsonContent["wp:Text1"];
+           _processPushMessage(message, dateCreated);
+        }
+            
         }
 
         var onIosPushReceived = function (e) {
@@ -65,8 +69,6 @@
             },
             wp8: {
                 channelName: "EverlivePushChannel",
-                ecb: onWpPushReceived
-               
             },
               
             notificationCallbackWP8: onWpPushReceived,

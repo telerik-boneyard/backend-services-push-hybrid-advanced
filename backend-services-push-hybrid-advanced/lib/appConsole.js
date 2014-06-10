@@ -38,6 +38,10 @@
 
         error: function (message) {
             this.log(message, true);
+        },
+        
+        clear: function () {
+        	$(".console").html("");
         }
     };
 })(jQuery);

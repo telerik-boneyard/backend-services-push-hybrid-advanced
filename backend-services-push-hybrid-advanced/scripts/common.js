@@ -27,6 +27,7 @@
     app.logout = function () {
         navigator.notification.confirm('This will logout you, are your sure?', function (buttonIndex) {
         	if (buttonIndex === 1) {
+                appConsole.clear();
         		app.everlive.Users.logout();
         		app.navigateToView(app.config.views.init);
         	}
@@ -62,7 +63,6 @@
 
         $(data).map(function (index, item) {
             if (item.isSelected) {
-                // var model = {'Id' : item.Id, 'Username' : item.Username};
                 checkedUsers.push(item.Id);
                 item.set("isSelected", false);
             }
