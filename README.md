@@ -14,6 +14,12 @@ This application is an advanced example of using Push Notifications provided by 
 * Creating push notifications from the client app.
 * Targeting push notifications to specific users.
 
+### Supported platforms ###
+
+* iOS
+* Android 
+* Windows Phone 8
+
 ### Installation ###
 
 * Log in Telerik AppBuilder and clone this repository.
@@ -28,6 +34,8 @@ This application is an advanced example of using Push Notifications provided by 
 * Deploy the project to a device and run it. More information of how to run your hybrid app created with Telerik AppBuilder on devices can be read here: [Running Apps on Devices](http://docs.telerik.com/platform/appbuilder/testing-your-app/running-on-devices/working-with-devices).
 
 * Authenticate to the app with an existing or new user account.
-* The app will try to automatically enable the device for push notifications and register it/update its registration in Telerik Backend Services.
-* Choose a specific user or just tap the "Send" button to send message to all available users. 
+* The app will try to automatically enable the device for push notifications and register it/update its registration in Telerik Backend Services. You will be able to survey the process in the main view of the app.
+* Select a specific user or just tap the "Send" button to send an already predefined message to all available users. 
+* A message will be displayed in the main view of the app when the notification was sent and when you receive a push notification.
+
 
