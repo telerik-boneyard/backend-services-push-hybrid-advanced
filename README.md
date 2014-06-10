@@ -6,7 +6,7 @@ This application is an example of creating and receiving Push Notifications prov
    * A new or existing Backend Services project in your Platform account.
    * The project must be configured for push notifications as specified in the Backend Services [documentation](http://docs.telerik.com/platform/backend-services/features/push-notifications/setup).
 
-> In order to send a notification to a subset of users you will need a Telerik Platform[subscription plan](http://www.telerik.com/purchase/platform) that supports "Push to Segment".
+> In order to send a notification to a subset of users you will need a Telerik Platform [subscription plan](http://www.telerik.com/purchase/platform) that supports "Push to Segment".
 
 ### Showcased features of Telerik Backend Services ###
 
