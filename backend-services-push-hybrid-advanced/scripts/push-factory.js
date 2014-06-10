@@ -43,7 +43,6 @@
                     "sound": "default"
                 },
                 "customData": customData
-                
             };
 
             var notificationObject = {
