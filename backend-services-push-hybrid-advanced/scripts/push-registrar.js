@@ -44,11 +44,10 @@
         };
     
         var onWpPushReceived = function (e) {
-           if (e.type == "toast" && e.jsonContent) {
-        	var message = e.jsonContent["wp:Text1"];
-           _processPushMessage(message, dateCreated);
-        }
-            
+            if (e.type === "toast" && e.jsonContent) {
+                var message = e.jsonContent["wp:Text1"];
+                _processPushMessage(message, new Date());
+            }
         }
 
         var onIosPushReceived = function (e) {
@@ -68,16 +67,15 @@
                 alert: "true"
             },
             wp8: {
-                channelName: "EverlivePushChannel",
+                channelName: "EverlivePushChannel"
             },
-              
             notificationCallbackWP8: onWpPushReceived,
             notificationCallbackAndroid: onAndroidPushReceived,
             notificationCallbackIOS: onIosPushReceived,
         };
 
         var enablePushNotifications = function () {
-            var devicePlatform = device.platform; // get the device platform from the Cordova API
+            var devicePlatform = device.platform; // get the device platform from the Cordova Device API
             appConsole.log("Initializing push notifications for " + devicePlatform + '...');
 
             var currentDevice = app.everlive.push.currentDevice(app.constants.EMULATOR_MODE);
@@ -118,7 +116,8 @@
                                     }, function (err) {
                                         _onPushErrorOccurred(err.message);
                                     });
-                            } else {
+                            }
+                            else {
                                 _onPushErrorOccurred(err.message);
                             }
                         }

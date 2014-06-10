@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Deployment AppPlatformVersion="8.0" xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment">
+  <DefaultLanguage code="en-US" xmlns="" />
+  <Languages xmlns="">
+    <Language code="en-US" />
+  </Languages>
+  <App BitsPerPixel="32" Genre="apps.normal" Description="$Description$" PublisherID="$WP8PublisherID$" Publisher="$WP8Publisher$" Author="$Author$" RuntimeType="Silverlight" Title="$DisplayName$" Version="$BundleVersion$" ProductID="$WP8ProductID$" xmlns="">
+    <IconPath IsRelative="true" IsResource="false">App_Resources\WP8\ApplicationIcon.png</IconPath>
+    <Capabilities>
+      <!--NOTE: During the build process, this section is merged with settings from the Project Properties. -->
+    </Capabilities>
+    <Tasks>
+      <DefaultTask Name="_default" NavigationPage="MainPage.xaml" />
+    </Tasks>
+    <Tokens>
+      <PrimaryToken TaskName="_default" TokenID="$ProjectName$Token">
+        <TemplateFlip>
+          <SmallImageURI IsResource="false" IsRelative="true">App_Resources\WP8\Tiles\Iconic\110x110.png</SmallImageURI>
+          <Count>0</Count>
+          <BackgroundImageURI IsResource="false" IsRelative="true">App_Resources\WP8\Tiles\Iconic\202x202.png</BackgroundImageURI>
+          <Title></Title>
+          <BackContent>
+          </BackContent>
+          <BackBackgroundImageURI>
+          </BackBackgroundImageURI>
+          <BackTitle>
+          </BackTitle>
+          <LargeBackgroundImageURI>
+          </LargeBackgroundImageURI>
+          <LargeBackContent>
+          </LargeBackContent>
+          <LargeBackBackgroundImageURI>
+          </LargeBackBackgroundImageURI>
+          <DeviceLockImageURI>
+          </DeviceLockImageURI>
+          <HasLarge>false</HasLarge>
+        </TemplateFlip>
+      </PrimaryToken>
+    </Tokens>
+    <ScreenResolutions>
+      <!--NOTE: During the build process, this section is merged with settings from the Project Properties. -->
+      <ScreenResolution Name="ID_RESOLUTION_WVGA"/>
+    </ScreenResolutions>
+  </App>
+</Deployment>
