@@ -1,10 +1,12 @@
-This application is an advanced example of using Push Notifications provided by Telerik Backend Services in a client app that is enabled to send and receive push notifications.
+This application is an example of creating and receiving Push Notifications provided by Telerik Backend Services.
 
 ### Requirements ###
 
    * Registration in Telerik Platform (https://platform.telerik.com/).
    * A new or existing Backend Services project in your Platform account.
    * The project must be configured for push notifications as specified in the Backend Services [documentation](http://docs.telerik.com/platform/backend-services/features/push-notifications/setup).
+
+> In order to send a notification to a subset of users you will need a Telerik Platform[subscription plan](http://www.telerik.com/purchase/platform) that supports "Push to Segment".
 
 ### Showcased features of Telerik Backend Services ###
 
@@ -35,7 +37,7 @@ This application is an advanced example of using Push Notifications provided by 
 
 * Authenticate to the app with an existing or new user account.
 * The app will try to automatically enable the device for push notifications and register it/update its registration in Telerik Backend Services. You will be able to survey the process in the main view of the app.
-* Select a specific user or just tap the "Send" button to send an already predefined message to all available users. 
+* You can select specific users and tap the "Send" button to send an already predefined message to them. Alternatively, you can just tap the "Send" button and the app will send a notification to all registered devices in your app.
 * A message will be displayed in the main view of the app when the notification was sent and when you receive a push notification.
 
 
