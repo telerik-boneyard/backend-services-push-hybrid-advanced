@@ -19,7 +19,8 @@
             var customData = {
                 "dateCreated": new Date()
             };
-
+			
+            var pushTitle = "Backend Services Push Sample";
             var pushMessage = sender + ": " + "Hello, push notifications!";
 
             // construct the payload for the notification
@@ -29,10 +30,9 @@
             
             var androidPayload = { 
                 "data": {
-                    "title": "Backend Services Push Sample",
+                    "title": pushTitle,
                     "message": pushMessage,
                     "customData": customData
-                    
                 }
             };
             
@@ -44,12 +44,20 @@
                 },
                 "customData": customData
             };
-
+			
+            var wpPayload = {
+                "Toast": {
+                    "Title": pushTitle,
+                    "Message": pushMessage
+                }
+            };
+            
             var notificationObject = {
                 "Filter": JSON.stringify(filter),
                 "Message": generalPayload,
                 "Android": androidPayload,
-                "IOS": iosPayload
+                "IOS": iosPayload,
+                "WindowsPhone": wpPayload
             };
 
             return notificationObject;
