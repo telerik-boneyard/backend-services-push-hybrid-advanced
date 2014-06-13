@@ -45,7 +45,7 @@
     
         var onWpPushReceived = function (e) {
             if (e.type === "toast" && e.jsonContent) {
-                var message = e.jsonContent["wp:Text1"];
+                var message = e.jsonContent["wp:Text2"];
                 _processPushMessage(message, new Date());
             }
         }
