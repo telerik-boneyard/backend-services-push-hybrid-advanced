@@ -23,11 +23,8 @@
             var pushTitle = "Backend Services Push Sample";
             var pushMessage = sender + ": " + "Hello, push notifications!";
 
-            // construct the payload for the notification
-            var generalPayload = {
-                "Message": pushMessage
-            };
-            
+            // constructing the payload for the notification specifically for each supported mobile platform
+            // following the structure from here: http://docs.telerik.com/platform/backend-services/features/push-notifications/structure
             var androidPayload = { 
                 "data": {
                     "title": pushTitle,
@@ -54,7 +51,6 @@
             
             var notificationObject = {
                 "Filter": JSON.stringify(filter),
-                "Message": generalPayload,
                 "Android": androidPayload,
                 "IOS": iosPayload,
                 "WindowsPhone": wpPayload
