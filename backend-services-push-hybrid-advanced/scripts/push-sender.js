@@ -11,15 +11,15 @@
             var notificationObject = app.PushFactory.create(currentUsername, recipients);
 
             appConsole.log("Sending push message...");
-        
-            app.everlive.push.notifications.create(notificationObject, function (data) {
+
+            app.everlive.push.send(notificationObject, function (data) {
                 var createdAt = app.formatDate(data.result.CreatedAt);
                 appConsole.log("Notification created at: " + createdAt);
             }, function (err) {
                 appConsole.log("Failed to create push notification: " + err.message, true);
             });
         };
-        
+
         return {
             send : send
         }
