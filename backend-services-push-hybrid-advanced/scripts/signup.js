@@ -45,15 +45,19 @@
         };
 
         var signup = function () {
-
+			
+			var attrs = {
+				"DisplayName": dataSource.DisplayName,
+				"Email": dataSource.Email
+            };
+			
             app.everlive.Users.register(
                 dataSource.Username,
                 dataSource.Password,
-                dataSource.DisplayName,
-                dataSource.Email)
-                .then(function () {
+                attrs
+             ).then(function () {
                         app.showAlert("Registration successful");
-                        app.navigateToView(app.config.views.main);
+                        app.navigateToView("#initView");
                     },
                     function (err) {
                         app.showError(err.message);
