@@ -31,7 +31,6 @@
     "org.apache.cordova.network-information",
     "org.apache.cordova.dialogs",
     "org.apache.cordova.splashscreen",
-    "com.phonegap.plugins.PushPlugin@2.4.3",
     "com.phonegap.plugins.PushPlugin@2.5.4"
   ],
   "DeviceOrientations": [
