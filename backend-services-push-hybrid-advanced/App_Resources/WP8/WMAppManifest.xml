@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<Deployment AppPlatformVersion="8.0" xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment">
+<Deployment AppPlatformVersion="$WPSdk$" xmlns="$WP8DeploymentSchema$">
   <DefaultLanguage code="en-US" xmlns="" />
   <Languages xmlns="">
     <Language code="en-US" />
