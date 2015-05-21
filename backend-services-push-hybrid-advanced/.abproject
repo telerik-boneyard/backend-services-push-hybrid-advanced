@@ -25,13 +25,13 @@
     "android.permission.WRITE_EXTERNAL_STORAGE"
   ],
   "CorePlugins": [
+    "com.phonegap.plugins.PushPlugin@2.5.5",
     "org.apache.cordova.device",
     "org.apache.cordova.device-orientation",
+    "org.apache.cordova.dialogs",
     "org.apache.cordova.globalization",
     "org.apache.cordova.network-information",
-    "org.apache.cordova.dialogs",
-    "org.apache.cordova.splashscreen",
-    "com.phonegap.plugins.PushPlugin@2.5.4"
+    "org.apache.cordova.splashscreen"
   ],
   "DeviceOrientations": [
     "Portrait",
@@ -45,7 +45,7 @@
     "ID_RESOLUTION_HD720P"
   ],
   "BundleVersion": "1.0",
-  "DisplayName": "",
+  "DisplayName": "Advanced Push Sample",
   "Author": "",
   "Description": "PushSample",
   "iOSDeviceFamily": [
@@ -56,7 +56,7 @@
   "AndroidVersionCode": "1",
   "WP8Requirements": [],
   "WP8Capabilities": [],
-  "WP8TileTitle": "",
+  "WP8TileTitle": "Advanced Push Sample",
   "WP8ProductID": "{f6aa10b5-74a3-4b54-bfc8-2e3db2ed4bb4}",
   "WP8PublisherID": "{189efa1b-b563-4a60-b4bf-4d350867391f}",
   "WP8Publisher": "",
