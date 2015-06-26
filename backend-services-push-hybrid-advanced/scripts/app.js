@@ -3,6 +3,11 @@
 
     var app = global.app = global.app || {};
     
+    app.everlive = new Everlive({
+        apiKey: app.config.everlive.apiKey,
+        scheme: app.config.everlive.scheme
+    });
+        
     var fixViewResize = function () {
         
         if (device.platform === 'iOS') {
@@ -31,11 +36,6 @@
             transition: 'slide',
             statusBarStyle: statusBarStyle,
             skin: 'flat'
-        });
-
-        app.everlive = new Everlive({
-            apiKey: app.config.everlive.apiKey,
-            scheme: app.config.everlive.scheme
         });
     };
 
