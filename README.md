@@ -30,7 +30,7 @@ The sample app utilizes the following Telerik products and SDKs:
 ## Screenshots
 
 Login Screen|Registering|Select Recipient|Receiving
----|---
+---|---|---|---
 ![Login Screen](https://raw.githubusercontent.com/telerik/backend-services-push-hybrid-advanced/master/screenshots/android-login-screen.png)|![Registering](https://raw.githubusercontent.com/telerik/backend-services-push-hybrid-advanced/master/screenshots/android-registering.png)|![Select Recipient](https://raw.githubusercontent.com/telerik/backend-services-push-hybrid-advanced/master/screenshots/android-send-select.png)|![Receiving](https://raw.githubusercontent.com/telerik/backend-services-push-hybrid-advanced/master/screenshots/android-sending-receiving.png)
 
 ## Requirements
