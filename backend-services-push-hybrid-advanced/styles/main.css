@@ -14,7 +14,7 @@
 
 /* No API Key screen */
 
-#pushApp.noapikey-scrn {
+#pushApp.noappid-scrn {
     padding: 1em;
     background-color: #2d3e50;
     color: #fff;
@@ -22,16 +22,16 @@
     font-family: "Open Sans", sans-serif;
 }
 
-#pushApp.noapikey-scrn p {
+#pushApp.noappid-scrn p {
     color: #e4e4e4;
 }
 
-#pushApp.noapikey-scrn p strong,
-#pushApp.noapikey-scrn p span {
+#pushApp.noappid-scrn p strong,
+#pushApp.noappid-scrn p span {
     color: #fff;
 }
 
-#pushApp.noapikey-scrn p span {
+#pushApp.noappid-scrn p span {
     font-weight: 600;
 }
 
