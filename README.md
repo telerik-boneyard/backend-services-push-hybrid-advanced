@@ -56,7 +56,10 @@ The sample app comes fully functional, but to see it in action you must link it 
 7. Open the `backend-services-push-hybrid-advanced/backend-services-push-hybrid-advanced/scripts/config.js` file.
 8. Locate the `app.config.everlive.apiKey` variable and replace its value with the Backend Services API Key that you acquired earlier.
 9. If you want to run the app on Android devices, locate the `app.androidProjectNumber` variable and replace its value with your Google project number. More details on obtaining the project number can be found on [Google Developers](https://developers.google.com/console/help/new/#projectnumber).
-10. Finally, set up push notifications in your Backend Services project as explained in [Enabling Push Notifications](http://docs.telerik.com/platform/backend-services/javascript/push-notifications/push-enabling).
+10. Go to your Backend Services project and enable push notifications as explained in [Enabling Push Notifications](http://docs.telerik.com/platform/backend-services/javascript/push-notifications/push-enabling).
+11. Ensure that the Push Notifications > Permissions > Client Push Notifications setting is set to **Allow**.
+
+> It is not advisable to set Client Push Notifications to Allow on productions apps. For more information, see [Security of Push Notifications](docs.telerik.com/platform/backend-services/ios/push-notifications/push-security).
 
 ## Running the Sample
 
