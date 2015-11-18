@@ -59,7 +59,7 @@ The sample app comes fully functional, but to see it in action you must link it 
 10. Go to your Backend Services project and enable push notifications as explained in [Enabling Push Notifications](http://docs.telerik.com/platform/backend-services/javascript/push-notifications/push-enabling).
 11. Ensure that the Push Notifications > Permissions > Client Push Notifications setting is set to **Allow**.
 
-> It is not advisable to set Client Push Notifications to Allow on productions apps. For more information, see [Security of Push Notifications](docs.telerik.com/platform/backend-services/ios/push-notifications/push-security).
+> It is not advisable to set Client Push Notifications to Allow on productions apps. For more information, see [Security of Push Notifications](http://docs.telerik.com/platform/backend-services/ios/push-notifications/push-security).
 
 ## Running the Sample
 
