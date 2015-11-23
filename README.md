@@ -9,7 +9,7 @@
 * [Running the Sample](#running-the-sample)
 * [See Also](#see-also)
 
-## Overview
+# Overview
 
 This repository contains a sample app that demonstrates how to implement more advanced features relating to push notifications. It is a hybrid app built using Telerik AppBuilder and Cordova.
 
@@ -27,13 +27,13 @@ The sample app utilizes the following Telerik products and SDKs:
 - [Telerik Backend Services JavaScript SDK](http://docs.telerik.com/platform/backend-services/javascript/getting-started-javascript-sdk)&mdash;to connect the app to Telerik Backend Services
 - [Telerik Push Plugin](https://github.com/Telerik-Verified-Plugins/PushNotification) for AppBuilder&mdash;to enable push notifications in Cordova
 
-## Screenshots
+# Screenshots
 
 Login Screen|Registering|Select Recipient|Receiving
 ---|---|---|---
 ![Login Screen](https://raw.githubusercontent.com/telerik/backend-services-push-hybrid-advanced/master/screenshots/android-login-screen.png)|![Registering](https://raw.githubusercontent.com/telerik/backend-services-push-hybrid-advanced/master/screenshots/android-registering.png)|![Select Recipient](https://raw.githubusercontent.com/telerik/backend-services-push-hybrid-advanced/master/screenshots/android-send-select.png)|![Receiving](https://raw.githubusercontent.com/telerik/backend-services-push-hybrid-advanced/master/screenshots/android-sending-receiving.png)
 
-## Requirements
+# Requirements
 
 Before you begin, you need to ensure that you have the following:
 
@@ -42,7 +42,7 @@ Ensure that you can log in to a Telerik Platform account. This can be a free tri
 - **Telerik AppBuilder**
 The sample app requires Telerik AppBuilder to run. This can be the in-browser client, the desktop client or the extension for Visual Studio.
 
-## Configuration
+# Configuration
 
 The sample app comes fully functional, but to see it in action you must link it to your own Telerik Platform account.
 
@@ -61,7 +61,7 @@ The sample app comes fully functional, but to see it in action you must link it 
 
 > It is not advisable to set Client Push Notifications to Allow on productions apps. For more information, see [Security of Push Notifications](http://docs.telerik.com/platform/backend-services/ios/push-notifications/push-security).
 
-## Running the Sample
+# Running the Sample
 
 Once the app is configured, you can run it on a real device. To run it, follow the steps in the product's documentation: [Running Apps on Devices](http://docs.telerik.com/platform/appbuilder/testing-your-app/running-on-devices/working-with-devices).
 
