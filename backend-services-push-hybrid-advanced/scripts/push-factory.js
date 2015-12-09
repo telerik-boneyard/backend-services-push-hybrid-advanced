@@ -10,7 +10,7 @@
             if (Array.isArray(recipients) && recipients.length > 0) {
                 // filter on the userId field in each device
                 filter = {
-                    "User.Id": {
+                    "UserId": {
                         "$in": recipients
                     }
                 };
