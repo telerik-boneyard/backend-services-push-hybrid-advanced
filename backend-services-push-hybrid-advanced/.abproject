@@ -25,7 +25,7 @@
     "android.permission.WRITE_EXTERNAL_STORAGE"
   ],
   "CorePlugins": [
-    "com.phonegap.plugins.PushPlugin@2.5.6",
+    "com.phonegap.plugins.PushPlugin@3.0.2",
     "org.apache.cordova.device",
     "org.apache.cordova.device-orientation",
     "org.apache.cordova.dialogs",
