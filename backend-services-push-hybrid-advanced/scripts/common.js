@@ -25,7 +25,7 @@
     };
     
     app.logout = function () {
-        navigator.notification.confirm('This will logout you, are your sure?', function (buttonIndex) {
+        navigator.notification.confirm('This will log you out, are your sure?', function (buttonIndex) {
         	if (buttonIndex === 1) {
                 appConsole.clear();
         		app.everlive.Users.logout();

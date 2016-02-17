@@ -14,27 +14,27 @@
         };
 
         var _processPushMessage = function (message, date) {
-            appConsole.log(date + " : " + message);
+            var dateStr = app.formatDate(date.toISOString());
+            appConsole.log(dateStr + ' : ' + message);
         };
 
         var onAndroidPushReceived = function (e) {
             var message = e.message;
-            var dateCreated = app.formatDate(e.payload.customData.dateCreated);
-
+            var dateCreated = e.payload.customData && e.payload.customData.dateCreated;
+            dateCreated = dateCreated || new Date();
             _processPushMessage(message, dateCreated);
         };
 
         var onWpPushReceived = function (e) {
             if (e.type === "toast" && e.jsonContent) {
-                var message = e.jsonContent["wp:Text2"];
+                var message = e.jsonContent["wp:Text2"] || e.jsonContent["wp:Text1"];
                 _processPushMessage(message, new Date());
             }
         };
 
         var onIosPushReceived = function (e) {
             var message = e.alert;
-            var dateCreated = app.formatDate(e.dateCreated);
-
+            var dateCreated = e.dateCreated || new Date();
             _processPushMessage(message, dateCreated);
         };
 
