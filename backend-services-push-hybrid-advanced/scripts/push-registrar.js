@@ -14,28 +14,27 @@
         };
 
         var _processPushMessage = function (message, date) {
-            var dateStr = app.formatDate(date.toISOString());
+            date = date || new Date().toISOString();
+            var dateStr = app.formatDate(date);
             appConsole.log(dateStr + ' : ' + message);
         };
 
         var onAndroidPushReceived = function (e) {
             var message = e.message;
             var dateCreated = e.payload.customData && e.payload.customData.dateCreated;
-            dateCreated = dateCreated || new Date();
             _processPushMessage(message, dateCreated);
         };
 
         var onWpPushReceived = function (e) {
             if (e.type === "toast" && e.jsonContent) {
                 var message = e.jsonContent["wp:Text2"] || e.jsonContent["wp:Text1"];
-                _processPushMessage(message, new Date());
+                // WP does not allow custom payload, hence we do not have the dateCreated
+                _processPushMessage(message, null);
             }
         };
 
         var onIosPushReceived = function (e) {
-            var message = e.alert;
-            var dateCreated = e.dateCreated || new Date();
-            _processPushMessage(message, dateCreated);
+            _processPushMessage(e.alert, e.dateCreated);
         };
 
         var pushSettings = {
