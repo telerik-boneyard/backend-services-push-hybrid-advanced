@@ -4,20 +4,22 @@
     var app = global.app = global.app || {};
 
     app.MainViewModel = (function () {
-        var isDeviceInitialized;
-
+        var pushEnabledForUser;
+        
         var events = {
              afterShow: function () {
                 if ((!app.androidProjectNumber || app.androidProjectNumber === "ANDROID_PROJECT_NUMBER") && device.platform.toLowerCase() === "android") {
-                    appConsole.log('Please enter an Android project number in order to receive notifications on Android device.');
+                    appConsole.log("Please enter an Android project number in order to receive notifications on Android device.");
                     return;
                 }
-                
-                if (!isDeviceInitialized) {
-                    // initializing the push notifications 
+                 
+                var loggedInUser = app.currentUserUsername.get("username");
+                 
+                if (pushEnabledForUser !== loggedInUser) {
+                    // initializing the push notifications
                     app.PushRegistrar.enablePushNotifications();
-                    isDeviceInitialized = true;
-                } 
+                    pushEnabledForUser = loggedInUser;
+                }
             }
         }
 
