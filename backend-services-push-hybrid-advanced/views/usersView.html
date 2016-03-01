@@ -6,7 +6,7 @@
         </div>
     </div>
 
-    <ul id="users-list-view" class="users-list-view" data-bind="source: usersDataSource" data-template="users-template" data-role="listview" data-click="app.usersModel.onUserSelected"></ul>
+    <ul id="users-list-view" class="users-list-view" data-bind="source: usersDataSource" data-pull-to-refresh="true" data-template="users-template" data-role="listview" data-click="app.usersModel.onUserSelected"></ul>
 
     <div data-role="footer">
         <span data-role="touch" data-bind="events: { tap: handleSendAction }">
