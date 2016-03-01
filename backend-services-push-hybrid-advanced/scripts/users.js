@@ -13,11 +13,16 @@
             app.navigateToView(app.config.views.main);
             app.PushSender.send();
         };
+        
+        var refreshUserList = function () {
+            app.usersDataSource.read();
+        };
 
         return {
             usersDataSource: app.usersDataSource,
             onUserSelected: onUserSelected,
-            handleSendAction: handleSendAction
+            handleSendAction: handleSendAction,
+            refreshUserList: refreshUserList
         };
     }());
 }(window));
