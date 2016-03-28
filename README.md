@@ -12,7 +12,7 @@
 
 # Overview
 
-This repository contains a sample app that demonstrates how to implement more advanced features relating to push notifications. It is a hybrid app built using Telerik Platform and Cordova.
+This repository contains a sample app that demonstrates how to implement more advanced features relating to push notifications, specifically targeting and sending of push notifications based on [user account filtering criteria](http://docs.telerik.com/platform/backend-services/javascript/push-notifications/send-and-target/push-target.html#user-account-fields-as-filtering-criteria). It is a hybrid app built using Telerik Platform and Cordova.
 
 The sample app showcases these features:
 
@@ -59,6 +59,7 @@ The sample app comes fully functional, but to see it in action you must link it 
 10. Go to the **Notifications** tab and click **Enable Notifications**.
 11. Enable push notifications as explained in [Enabling Push Notifications](http://docs.telerik.com/platform/backend-services/javascript/push-notifications/push-enabling).
 11. Ensure that the **Notifications > Push Notifications > Permissions > Client Push Notifications** setting is set to **Allow** or **Limit**.
+12. Go to the **Users** tab and click **Enable Users**. You will have to log into the app with a registered user account. Registration can be done through the "Don't have an account?" button in the app.
 
 > It is not advisable to set **Client Push Notifications** to Allow on productions apps. For more information, see [Security of Push Notifications](http://docs.telerik.com/platform/backend-services/ios/push-notifications/push-security).
 
